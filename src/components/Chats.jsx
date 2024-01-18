@@ -15,12 +15,9 @@ const Chat = () => {
                         <span className='home-icon-text'>Home</span>
                         </div>
                         <div className='chats-search-box'>
-                            <input type="text" placeholder='Messages'/>
 
-                            <span className="message-icon-div">
-                                <FontAwesomeIcon icon={faComments} className="message-icon"/>
-                            </span>
-                          
+                            <FontAwesomeIcon icon={faComments} className="message-icon"/>
+                            <input type="text" placeholder='Messages'/>
                         </div>
                     </div>
 

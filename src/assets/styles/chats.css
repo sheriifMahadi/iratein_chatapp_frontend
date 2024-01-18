@@ -35,9 +35,10 @@
 ::-webkit-input-placeholder{
     @apply pr-20 text-center !text-white;
 }
-.message-icon-div {
-    /* @apply pr-48 text-white absolute; */
-    position: absolute;
+
+.message-icon{
+    @apply text-white absolute;
+    left: 35px;
 }
 
 .leftpane-bottom {
@@ -54,5 +55,5 @@
 }
 
 .button-logout-icon {
-    
+    @apply left-[80px] relative;
 }
