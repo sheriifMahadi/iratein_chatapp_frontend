@@ -3,6 +3,9 @@ import { faComments } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
+import Header from './Header'
+import NoMessage from './NoMessage'
+
 const Chat = () => {
     return (
         <div>
@@ -34,7 +37,8 @@ const Chat = () => {
                 </div>
 
                 <div className="right-pane">
-                    text
+                    <Header/>
+                    <NoMessage/>
                 </div>
             </div>
         </div>

@@ -1,0 +1,70 @@
+.right-pane {
+    /* background-color: red; */
+}
+
+.header {
+    @apply border flex;    
+
+}
+
+.header-left, .header-right {
+    @apply p-2.5
+}
+.header-left {
+   @apply grow
+}
+
+.header-right {
+    @apply grow text-end; 
+}
+
+.header-left > input { 
+    @apply py-2 px-3 border text-center text-[#BDBDBD]; 
+}
+
+.search-for-house::-webkit-input-placeholder {
+    @apply p-5
+}
+
+.search-for-house {
+    @apply rounded-l-lg w-[150px]; 
+
+}
+
+.location {
+    @apply rounded-r-lg w-[100px]; 
+
+}
+
+.header-left > ::-webkit-input-placeholder{
+    @apply text-center !text-[#828282] font-light text-sm;
+}
+
+.search-icon {
+    @apply left-[30px] relative text-[#BDBDBD];
+
+}
+
+.location-icon {
+    @apply right-[30px] relative text-[#BDBDBD];
+
+}
+
+
+.notification-icon {
+    @apply border rounded-xl text-[#BDBDBD] py-[7px] px-2.5;
+}
+
+.profile {
+    @apply p-4;
+
+
+}
+
+select {
+    @apply border rounded-lg bg-white !p-2;    
+}
+
+select:focus{
+    @apply outline-none
+}

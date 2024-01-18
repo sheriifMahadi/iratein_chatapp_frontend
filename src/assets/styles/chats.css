@@ -1,5 +1,4 @@
 
-
 .chat-container {
     @apply min-h-screen flex;
 }
@@ -29,7 +28,7 @@
 }
 
 .chats-search-box > input {
-    @apply rounded w-60 h-10 bg-[rgba(255,255,255,0.2)] relative;
+    @apply rounded w-60 h-10 bg-[rgba(255,255,255,0.2)] relative text-center text-white;
 }
 
 ::-webkit-input-placeholder{
