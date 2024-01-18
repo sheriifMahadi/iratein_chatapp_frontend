@@ -1,6 +1,12 @@
-import { useState } from 'react'
+import Chat from './components/Chats'
 
-import './App.css'
+import './assets/styles.css'
 
-function App() {}
+const App = () => {
+  return (
+    <> 
+        <Chat/>
+    </>
+  )
+}
 export default App

@@ -1,0 +1,58 @@
+
+
+.chat-container {
+    @apply min-h-screen flex;
+}
+
+.left-pane {
+    @apply min-w-[250px] bg-[#0B468C];
+}
+
+.leftpane-top {
+    @apply p-5;
+}
+
+.right-pane {
+    @apply grow-[5]
+}
+
+.home-icon {
+    @apply text-white flex justify-center items-center
+}
+
+.home-icon-text {
+    @apply pt-5 pl-1
+}
+
+.chats-search-box {
+   @apply pt-7 flex justify-center items-center
+}
+
+.chats-search-box > input {
+    @apply rounded w-60 h-10 bg-[rgba(255,255,255,0.2)] relative;
+}
+
+::-webkit-input-placeholder{
+    @apply pr-20 text-center !text-white;
+}
+.message-icon-div {
+    /* @apply pr-48 text-white absolute; */
+    position: absolute;
+}
+
+.leftpane-bottom {
+    @apply flex justify-center items-center text-[#FF0000];
+    
+}
+
+.leftpane-bottom > button{
+    @apply rounded w-60 h-10 bg-white text-center;   
+}
+
+.leftpane-bottom{
+    @apply fixed mb-6 font-normal bottom-0   
+}
+
+.button-logout-icon {
+    
+}
