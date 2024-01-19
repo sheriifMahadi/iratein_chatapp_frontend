@@ -7,7 +7,6 @@
 
 }
 
-
 .notification-inner {
     @apply flex items-center bg-[#fefefe] p-5 w-[310px] h-[60px];
 }

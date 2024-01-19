@@ -1,0 +1,72 @@
+.inbox-main { 
+
+
+}
+
+.left-pane-inbox-wrapper {
+    padding: 30px 0px 0px 10px;
+    @apply flex flex-col h-screen w-[398px];
+    height: calc(100% - 64px)!important;
+    background: #F9FAFB!important;
+}
+
+.search-for-message {
+    @apply py-2 px-3 border text-center text-[#BDBDBD]; 
+    @apply rounded-lg w-[350px]; 
+    
+}
+
+.search-for-message::-webkit-input-placeholder{
+    @apply !text-[#828282] font-light text-sm pl-6;
+
+}
+
+.left-pane-inbox { 
+    font-size: 32px;
+    padding: 0 0 14px 15px;
+}
+
+.left-pane-inbox-search {
+    @apply pb-6
+}
+
+
+.profile-picture-wrapper {
+    @apply w-12 h-12 rounded-full relative shrink-0 overflow-hidden;
+}
+
+.profile-picture-wrapper img {
+    width: 100%;
+}
+.chats-inner-wrapper {
+    @apply flex items-center h-20 p-2;
+
+}
+.chats-inner-wrapper:active {
+    @apply outline-[none] shadow-[1px_1px_10px_rgba(0,0,0,0.14)];
+}
+.chats-inner-wrapper:hover {
+    @apply cursor-pointer
+}
+.chats-info-wrapper {
+    @apply flex-1 p-4 !text-[#4F4F4F];
+
+}
+
+.chats-top {
+    @apply flex justify-between;
+}
+
+.chats-last-message {
+    @apply truncate opacity-80 w-[260px]
+
+}
+.chats-bottom{
+    @apply flex justify-between;
+}
+
+.unread {
+    @apply rounded-full text-white bg-[#1A75E0];
+    padding:  0 8px;
+    font-size: 12px;
+}

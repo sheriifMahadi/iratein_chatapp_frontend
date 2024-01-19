@@ -3,6 +3,7 @@
 @import url('./styles/noMessage.css');
 @import url('./styles/addPersonModal.css');
 @import url('styles/notification.css');
+@import url('styles/inbox.css');
 
 @tailwind base;
 @tailwind components;
