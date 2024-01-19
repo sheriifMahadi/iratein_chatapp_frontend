@@ -2,6 +2,7 @@
 @import url('./styles/header.css');
 @import url('./styles/noMessage.css');
 @import url('./styles/addPersonModal.css');
+@import url('styles/notification.css');
 
 @tailwind base;
 @tailwind components;
@@ -17,26 +18,23 @@
 }
 
 body{
-    @apply text-base;
-    font-family: inter;
+    @apply text-base font-['inter'];
 }
 
 button:hover {
-    cursor: pointer;
-    box-shadow: 10px 10px 28px rgba(0, 0, 0, 0.15);
-    transition: 0.2s all; 
-    outline: none; 
+    @apply cursor-pointer outline-[none] shadow-[10px_10px_10px_rgba[0,0,0,0.15]] transition-all ;
 }
 
 button:active { 
     transform: scale(0.98); 
-    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24); 
+    @apply shadow-[3px_2px_1px_rgba(0,0,0,0.24)];
 } 
 
 input{
-    outline: none;
+    @apply outline-none
 }
 
 input:focus{
-    box-shadow: 1px 1px 100px 1px rgba(0, 0, 0, 0.15); 
+    @apply shadow-[1px_1px_120px_rgba(0,0,0,0.15)]
+
 }

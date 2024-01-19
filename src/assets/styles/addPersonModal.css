@@ -1,22 +1,12 @@
 
 .modal-container {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    @apply flex justify-center items-center pl-64;
+    @apply w-full h-full bg-[rgb(0,0,0)] bg-[rgba(0,0,0,0.4)] fixed z-[1];
+    @apply overflow-auto top-0 left-0
 }
 
 .modal-main{
-    background-color: #fefefe;
-    padding: 20px;
-    /* border: 1px solid #888; */
-    width: 564px; /* Could be more or less, depending on screen size */
-    height: 400px;
+    @apply bg-[#fefefe] p-5 w-[564px] h-[400px];
 }
 
 .modal-main > p {
@@ -46,7 +36,12 @@
 }
 
 .modal-buttons {
-    padding-top: 50px;
+    @apply pt-[50px] 
+
+}
+
+.modal-buttons > button {
+    @apply rounded-lg
 }
 
 .email-field-modal ::-webkit-input-placeholder, .name-field-modal > ::-webkit-input-placeholder{
@@ -54,11 +49,10 @@
 }
 
 .email-label-space {
-    padding-bottom: 5px;
-    display: block;
+    @apply block pb-[5px];
+   
 }
 
 .name-label-space {
-    padding: 5px;
-    display: block;
+    @apply block p-[5px]
 }

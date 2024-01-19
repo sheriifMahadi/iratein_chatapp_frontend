@@ -6,6 +6,7 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import Header from './Header'
 import NoMessage from './NoMessage'
 import AddPersonModal from './AddPersonModal'
+import Notification from './Notification'
 
 const Chat = () => {
     return (
@@ -39,8 +40,10 @@ const Chat = () => {
 
                 <div className="right-pane">
                     <Header/>
+                    {/* <Notification/> */}
                     <NoMessage/>
-                    <AddPersonModal/>
+                    {/* <AddPersonModal/> */}
+                    
                 </div>
             </div>
         </div>

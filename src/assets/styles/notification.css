@@ -1,0 +1,22 @@
+
+
+.notification-main {
+    @apply flex flex-wrap justify-end pr-12 pt-20;
+    @apply bg-[rgb(0,0,0)] bg-[rgba(0,0,0,0.4)] fixed top-0 left-0;
+    @apply h-full w-full;
+
+}
+
+
+.notification-inner {
+    @apply flex items-center bg-[#fefefe] p-5 w-[310px] h-[60px];
+}
+
+.check-icon-span {
+    @apply rounded-full bg-[#69B342] mr-[12px];
+
+}
+
+.check-icon {
+    @apply mb-[-4px] p-[4px] text-white;
+}
