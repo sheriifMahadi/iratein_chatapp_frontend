@@ -1,6 +1,7 @@
 @import url('./styles/chats.css');
 @import url('./styles/header.css');
 @import url('./styles/noMessage.css');
+@import url('./styles/addPersonModal.css');
 
 @tailwind base;
 @tailwind components;
@@ -16,5 +17,6 @@
 }
 
 body{
-    @apply text-base
+    @apply text-base;
+    font-family: inter;
 }

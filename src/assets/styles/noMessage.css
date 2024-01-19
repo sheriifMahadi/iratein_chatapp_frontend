@@ -4,14 +4,13 @@
 }
 
 .add-person-btn {
-    @apply rounded w-60 h-10 text-white !bg-[#0B468C];
+    @apply rounded w-60 h-10 text-white !bg-[#0B468C] ;
  
 
 }
 
 .chat-message-icon > img {
-    max-width: 100%;
-    height: auto;
+    @apply max-w-full h-auto	
 
 }
 
@@ -23,15 +22,21 @@
 .empty-inbox-text, .no-chats {
     @apply opacity-20
 }
+
 .empty-inbox-text {
-    @apply pb-6;
-    line-height: 16.94px;
+    @apply pb-6 leading-[16.94px];
 }
+
 .no-chats {
     @apply pt-5 pb-1;
 }
 
 .empty-inbox-text > span {
-   display: block;
-   text-align: center;
+    @apply block text-center;
 }
+
+.add-person-icon {
+    @apply left-[65px] relative text-white;
+
+}
+

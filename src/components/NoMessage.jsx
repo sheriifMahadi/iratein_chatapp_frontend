@@ -1,6 +1,6 @@
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import messagebubble from '../assets/messagebubble.svg'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const NoMessage = () => {
     return (
@@ -18,6 +18,10 @@ const NoMessage = () => {
                     </span>
             </div>
             <div className="add-person-btn-container">
+                <span className='add-person-icon'>
+                    <FontAwesomeIcon icon={faPlus} />
+
+                </span>
                 <button className="add-person-btn" type="button">
                     Add person
                 </button>
