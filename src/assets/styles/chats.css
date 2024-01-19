@@ -54,5 +54,5 @@
 }
 
 .button-logout-icon {
-    @apply left-[80px] relative;
+    @apply left-[80px] z-10;
 }
