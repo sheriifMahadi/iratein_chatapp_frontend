@@ -5,11 +5,9 @@ import { UserModel } from "../models/User";
 class AuthService {
   setUserInLocalStorage(data: UserModel) {
     localStorage.setItem("user", JSON.stringify(data));
-  }
- 
-  async login(email: string, password: string): Promise<UserModel> {
-    const response = await axios.post("http://127.0.0.1:8000/auth-token/", { email, password });
-    console.log(response)
+  } 
+  async login(username: string, password: string): Promise<UserModel> {
+    const response = await axios.post("http://127.0.0.1:8000/auth-token/", { username, password });
     if (!response.data.token) {
       return response.data;
     }

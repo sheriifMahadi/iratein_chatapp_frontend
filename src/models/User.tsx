@@ -1,4 +1,4 @@
 export interface UserModel {
-    email;
+    username;
     token
 }

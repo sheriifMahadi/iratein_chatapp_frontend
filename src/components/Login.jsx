@@ -12,16 +12,15 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { user, login } = useContext(AuthContext);
- 
   const formik = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: ""
     },
     onSubmit: async (values, { setSubmitting }) => {
       setSubmitting(true);
-      const { email, password } = values;
-      const res = await login(email, password);
+      const { username, password } = values;
+      const res = await login(username, password);
       if (res.error || res.data) {
         if (res.data && res.data.detail) {
           setError(res.data.detail);
@@ -58,7 +57,7 @@ const Login = () => {
               </p>
               <span>Login to your account</span>
           </div>
-          <div className="google-login modal-buttons">
+          {/* <div className="google-login modal-buttons">
           <span className="login-google-icon">
                 <img src={google} alt="google icon" />
             </span>
@@ -66,7 +65,7 @@ const Login = () => {
                   Continue with Google
             </button>
        
-          </div> 
+          </div>  */}
           <div className="raised-div-horizontal">
             <hr className=""/>
           </div>
@@ -79,9 +78,9 @@ const Login = () => {
 
             </span>
             <input type="text" 
-            value={formik.values.email}
+            value={formik.values.username}
             onChange={formik.handleChange}
-            name="email" 
+            name="username" 
             placeholder="E.g john@gmail.com"
             />
           </div>

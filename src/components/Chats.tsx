@@ -6,7 +6,8 @@ import Header from './Header'
 import NoMessage from './NoMessage'
 import AddPersonModal from './AddPersonModal'
 import Notification from './Notification'
-import Inbox from './Inbox'
+import Inbox from './Inbox.tsx'
+import { AuthContext } from "../contexts/AuthContext";
 
 //
 
@@ -15,14 +16,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 import useWebSocket, { ReadyState } from 'react-use-websocket'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 const Chat = () => {
+    const { user } = useContext(AuthContext);
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
   
-    const { readyState, sendJsonMessage } = useWebSocket("ws://127.0.0.1:8000/",{
+    const { readyState, sendJsonMessage } = useWebSocket(user ? "ws://127.0.0.1:8000/" : null, {
+    queryParams:{
+      token: user ? UserActivation.token: ""
+    },
     onOpen: () => {
         console.log("Connected");
       },
@@ -49,8 +54,7 @@ const Chat = () => {
       [ReadyState.CLOSED]: "Closed",
       [ReadyState.UNINSTANTIATED]: "Uninstantiated"
     }[readyState];
-  
-  
+    
     function handleChangeMessage(e) {
       setMessage(e.target.value);
     }
