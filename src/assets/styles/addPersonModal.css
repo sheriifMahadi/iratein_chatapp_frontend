@@ -22,7 +22,7 @@
 }
 
 .email-field-modal > input, .name-field-modal > input {
-    @apply pl-2.5 border rounded-lg block bg-[#F8F8F8] text-[#BDBDBD] w-[500px] h-14;
+    @apply pl-2.5 border rounded-lg block bg-[#F8F8F8] text-[#BDBDBD] w-[500px] h-12;
 }
 
 .cancel {

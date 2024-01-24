@@ -20,7 +20,6 @@ const NoMessage = () => {
             <div className="add-person-btn-container">
                 <span className='add-person-icon'>
                     <FontAwesomeIcon icon={faPlus} />
-
                 </span>
                 <button className="add-person-btn" type="button">
                     Add person

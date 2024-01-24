@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import homesvg from '../assets/homesvg.svg'
-
+import InboxNoChat from './InboxNoChat'
 
 const Inbox = () => {
     return (
@@ -66,6 +66,9 @@ const Inbox = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="right-pane-inbox-wrapper">
+               <InboxNoChat/>
             </div>
     </div>
     )

@@ -28,7 +28,7 @@ const Header = () => {
                             John Doe
                         </option>
                         <option value="">
-                        <img src={homesvg} alt="home"/>
+                        {/* <img src={homesvg} alt="home"/> */}
 
                         </option>
                     </select>

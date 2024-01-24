@@ -1,0 +1,63 @@
+.login-main {
+    @apply flex justify-center items-center flex-col
+   
+}
+
+.login-top{
+    @apply text-center;
+}
+
+.login-home-icon{
+    @apply flex justify-center items-center py-6
+}
+
+.login-home-icon-text {
+    @apply pt-5 pl-1 text-[#0B468C]
+}
+
+
+.welcome-text > p {
+    @apply text-3xl font-light
+    
+}
+.google-login > button{
+    @apply !text-[#0B468C] !bg-white border-[#E0E0E0] border w-[500px] ml-0 !text-center
+
+}
+
+.google-login {
+    @apply pt-4 pb-6
+}
+
+.login-button {
+    @apply pt-8 pb-4
+}
+
+.login {
+    @apply w-[500px] ml-0
+}
+
+.raised-div {
+    @apply  border-[#E0E0E0] border p-4
+
+}
+
+.forgot-password {
+    @apply text-[#F9A242] pt-2
+}
+
+.raised-div-horizontal {
+    @apply px-[150px] pb-10 opacity-40
+    
+}
+
+.login-google-icon {
+    @apply z-10 inline-block relative left-[160px];
+    
+
+    filter: invert(17%) sepia(63%) saturate(2960%) hue-rotate(203deg) brightness(88%) contrast(92%);
+}
+
+.login-google-icon > img {
+    @apply w-[15px] inline
+}

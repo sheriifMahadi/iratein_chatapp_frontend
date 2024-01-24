@@ -1,12 +1,11 @@
 .inbox-main { 
-
-
+    @apply flex;
+    height: calc(100% - 64px)!important;
 }
 
 .left-pane-inbox-wrapper {
     padding: 30px 0px 0px 10px;
-    @apply flex flex-col h-screen w-[398px];
-    height: calc(100% - 64px)!important;
+    @apply flex flex-col w-[398px];
     background: #F9FAFB!important;
 }
 
@@ -69,4 +68,16 @@
     @apply rounded-full text-white bg-[#1A75E0];
     padding:  0 8px;
     font-size: 12px;
+}
+
+.no-chat-open {
+    @apply  pt-14 
+}
+
+.no-chats {
+    @apply pl-[230px]
+}
+
+.chat-message-icon-secondary {
+    @apply ml-[300px]
 }

@@ -4,6 +4,8 @@
 @import url('./styles/addPersonModal.css');
 @import url('styles/notification.css');
 @import url('styles/inbox.css');
+@import url('styles/login.css');
+
 
 @tailwind base;
 @tailwind components;
