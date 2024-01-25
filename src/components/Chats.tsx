@@ -10,7 +10,6 @@ import Inbox from './Inbox.tsx'
 import { AuthContext } from "../contexts/AuthContext";
 
 //
-
 import { faComments } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
@@ -18,64 +17,31 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import useWebSocket, { ReadyState } from 'react-use-websocket'
 import { useState, useContext } from 'react'
 import { useParams } from "react-router-dom";
+import { useFormik } from 'formik'
+import { useNavigate } from 'react-router-dom'
+
 
 const Chat = () => {
-    const { conversationName } = useParams(); 
-    const { user } = useContext(AuthContext);
-    const [message, setMessage] = useState("");
-    const [name, setName] = useState("");
-    const [messageHistory, setMessageHistory] = useState([]);
-    const { readyState, sendJsonMessage } = useWebSocket(user ? `ws://127.0.0.1:8000/chats/${conversationName}/` : null, { 
-    queryParams:{
-      token: user ? user.token: ""
-    },
-    onOpen: () => {
-        console.log("Connected");
-      },
-      onClose: () => {
-        console.log("Disconnected")
-      },
-      onMessage: (e) => {
-        const data = JSON.parse(e.data);
-        switch (data.type) {
-          case "chat_message_echo":
-            setMessageHistory((prev) => prev.concat(data));
-            break;
-          default:
-            console.error("Unknown message type!");
-            break;      
-      }
-    }
-    });
+    const navigate = useNavigate();
+    const { logout } = useContext(AuthContext);
     
-    const connectionStatus = {
-      [ReadyState.CONNECTING]: "Connecting",
-      [ReadyState.OPEN]: "Open",
-      [ReadyState.CLOSING]: "Closing",
-      [ReadyState.CLOSED]: "Closed",
-      [ReadyState.UNINSTANTIATED]: "Uninstantiated"
-    }[readyState];
-    
-    function handleChangeMessage(e) {
-      setMessage(e.target.value);
-    }
-     
-    function handleChangeName(e) {
-      setName(e.target.value);
-    }
-  
-    function handleSubmit() {
-      sendJsonMessage({
-        type: "chat_message",
-        message,
-        name
+    const formik = useFormik({
+        initialValues: {
+          username: "",
+          password: "",
+        },
+        onSubmit: async (values, { setSubmitting }) => {
+          setSubmitting(true);
+          const { username, password } = values;
+          const res = await logout();
+          navigate("/login");
+          
+          setSubmitting(false);
+        },
       });
-      setName("");
-      setMessage("");
-    }
     return (
         <div>
-            <span>The WebSocket is currently {connectionStatus}</span>
+            <form onSubmit={formik.handleSubmit}>
             <div className="chat-container">
                 <div className='left-pane'>
 
@@ -96,8 +62,8 @@ const Chat = () => {
                             <FontAwesomeIcon icon={faArrowRightFromBracket} rotation={180} />
                         </span>
 
-                        <button type="button">
-                            Log out
+                        <button type="submit">
+                            {formik.isSubmitting ? "Logging out..." : "Log out"}
                         </button>
 
                     </div>
@@ -112,6 +78,7 @@ const Chat = () => {
                     
                 </div>
             </div>
+            </form>
         </div>
     )
 }

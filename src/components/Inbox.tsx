@@ -8,8 +8,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
  
 import { AuthContext } from "../contexts/AuthContext";
-import { UserModel } from '../models/User'
-import AuthService from '../services/AuthService'
+import ChatTextBox from './ChatTextBox'
 
 interface UserResponse {
   username: string;
@@ -82,8 +81,7 @@ const Inbox = () => {
                 
             </div>
             <div className="right-pane-inbox-wrapper">
-               <InboxNoChat/>
-               
+               <ChatTextBox/>
             </div>
             
     </div>
