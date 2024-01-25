@@ -1,5 +1,5 @@
 import { AxiosRequestHeaders } from "axios";
- 
+
 export default function authHeader(): AxiosRequestHeaders {
   const localstorageUser = localStorage.getItem("user");
   if (!localstorageUser) {

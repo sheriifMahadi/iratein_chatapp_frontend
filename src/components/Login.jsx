@@ -12,10 +12,11 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { user, login } = useContext(AuthContext);
+
   const formik = useFormik({
     initialValues: {
       username: "",
-      password: ""
+      password: "",
     },
     onSubmit: async (values, { setSubmitting }) => {
       setSubmitting(true);
@@ -29,9 +30,9 @@ const Login = () => {
         navigate("/");
       }
       setSubmitting(false);
-    }
+    },
   });
- 
+
   useEffect(() => {
     if (user) {
       navigate("/");
@@ -57,7 +58,7 @@ const Login = () => {
               </p>
               <span>Login to your account</span>
           </div>
-          {/* <div className="google-login modal-buttons">
+          <div className="google-login modal-buttons">
           <span className="login-google-icon">
                 <img src={google} alt="google icon" />
             </span>
@@ -65,7 +66,7 @@ const Login = () => {
                   Continue with Google
             </button>
        
-          </div>  */}
+          </div> 
           <div className="raised-div-horizontal">
             <hr className=""/>
           </div>

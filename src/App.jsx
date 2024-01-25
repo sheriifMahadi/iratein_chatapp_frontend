@@ -7,6 +7,7 @@ import { AuthContextProvider } from './contexts/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import Header from './components/Header';
 import AuthService from "../src/services/AuthService";
+import Inbox from './components/Inbox';
 
 const App = () => {
 
@@ -16,11 +17,22 @@ const App = () => {
       <Routes>
           <Route path="/" 
           element={
-            <ProtectedRoute>
-              <Chat />
-            </ProtectedRoute>
+            <AuthContextProvider>
+              <ProtectedRoute>
+                  <Chat />
+              </ProtectedRoute>
+            </AuthContextProvider>
+
         } />
-        
+          <Route path="chats/:conversationName"
+          element={
+            <AuthContextProvider>
+              <ProtectedRoute>
+                <Chat />
+              </ProtectedRoute>
+            </AuthContextProvider>
+        }
+          />
           <Route path="/login" element={
             <AuthContextProvider>
               <Login />

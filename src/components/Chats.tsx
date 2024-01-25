@@ -17,16 +17,17 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 import useWebSocket, { ReadyState } from 'react-use-websocket'
 import { useState, useContext } from 'react'
+import { useParams } from "react-router-dom";
 
 const Chat = () => {
+    const { conversationName } = useParams(); 
     const { user } = useContext(AuthContext);
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
-  
-    const { readyState, sendJsonMessage } = useWebSocket(user ? "ws://127.0.0.1:8000/" : null, {
+    const { readyState, sendJsonMessage } = useWebSocket(user ? `ws://127.0.0.1:8000/chats/${conversationName}/` : null, { 
     queryParams:{
-      token: user ? UserActivation.token: ""
+      token: user ? user.token: ""
     },
     onOpen: () => {
         console.log("Connected");
@@ -72,9 +73,9 @@ const Chat = () => {
       setName("");
       setMessage("");
     }
-
     return (
         <div>
+            <span>The WebSocket is currently {connectionStatus}</span>
             <div className="chat-container">
                 <div className='left-pane'>
 
