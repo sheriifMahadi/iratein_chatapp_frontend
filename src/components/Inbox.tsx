@@ -15,22 +15,23 @@ interface UserResponse {
   name: string;
   url: string;
 }
-const Inbox = () => {
-    const { user } = useContext(AuthContext);
-    const [users, setUsers] = useState<UserResponse[]>([]);
+const Inbox = ({users, user}) => {
+    // const { user } = useContext(AuthContext);
+    // const [users, setUsers] = useState<UserResponse[]>([]);
 
-    useEffect(() => {
-        async function fetchUsers() {
-          const res = await fetch("http://127.0.0.1:8000/api/users/all/", {
-            headers: {
-              Authorization: `Token ${user?.token}`
-            }
-          });
-          const data = await res.json();    
-          setUsers(data);
-        }
-        fetchUsers();
-      }, [user]);
+    // useEffect(() => {
+    //     async function fetchUsers() {
+    //       const res = await fetch("http://127.0.0.1:8000/api/users/all/", {
+    //         headers: {
+    //           Authorization: `Token ${user?.token}`
+    //         }
+    //       });
+    //       const data = await res.json();    
+    //       setUsers(data);
+    //     }
+    //     fetchUsers();
+    //   }, [user]);
+
     function convertChatName(username: string) {
         const namesAlph = [user?.username, username].sort();
         return `${namesAlph[0]}`.replace(/[^a-zA-Z0-9 ]/g, '-');;

@@ -15,13 +15,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 import useWebSocket, { ReadyState } from 'react-use-websocket'
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useParams } from "react-router-dom";
 import { useFormik } from 'formik'
 import { useNavigate } from 'react-router-dom'
 
+interface UserResponse {
+    username: string;
+    name: string;
+    url: string;
+  }
 
-const Chat = () => {
+export default function Chat() {
     const navigate = useNavigate();
     const { logout } = useContext(AuthContext);
     
@@ -39,6 +44,22 @@ const Chat = () => {
           setSubmitting(false);
         },
       });
+
+      const { user } = useContext(AuthContext);
+      const [users, setUsers] = useState<UserResponse[]>([]);
+  
+      useEffect(() => {
+          async function fetchUsers() {
+            const res = await fetch("http://127.0.0.1:8000/api/users/all/", {
+              headers: {
+                Authorization: `Token ${user?.token}`
+              }
+            });
+            const data = await res.json();    
+            setUsers(data);
+          }
+          fetchUsers();
+        }, [user]);
     return (
         <div>
             <form onSubmit={formik.handleSubmit}>
@@ -71,10 +92,12 @@ const Chat = () => {
 
                 <div className="right-pane">
                     <Header/>
-                    {/* <Notification/> */}
-                    {/* <NoMessage/> */}
-                    {/* <AddPersonModal/> */}
-                    <Inbox/>
+                    {
+                        users !== null
+                        ? <Inbox users={users} user={user}/>
+                        : <NoMessage/>
+
+                    }
                     
                 </div>
             </div>
@@ -83,4 +106,3 @@ const Chat = () => {
     )
 }
 
-export default Chat  

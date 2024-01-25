@@ -1,10 +1,17 @@
 
 import React from "react";
 
-const AddPersonModal = () =>  {
-
+const AddPersonModal = ({display, setDisplay, setNotificationDisplay}) =>  {
+    
     return (
-        <div className="modal-container">
+        <div>
+            {
+                display==false?
+                <div>
+                    
+                </div>
+                :
+                <div className="modal-container">
             <div className="modal-main">
                 <p>Invite a Person</p>
                 <div className="modal-input-fields">
@@ -28,16 +35,27 @@ const AddPersonModal = () =>  {
                     </div>
                 </div>
                     <div className="modal-buttons">
-                        <button className="cancel" type="button">
+                        <button 
+                        className="cancel" 
+                        type="button"
+                        onClick={() => setDisplay(false)}>
                             Cancel
                         </button>
         
-                        <button className="add" type="button">
+                        <button 
+                        className="add" 
+                        type="button"
+                        onClick={() => {setDisplay(false)
+                        setNotificationDisplay(true)}
+                        }
+                        >
                             Add person
                         </button>
                     </div>
 
             </div>
+        </div>
+            }
         </div>
     )
 }

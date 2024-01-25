@@ -1,10 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import messagebubble from '../assets/messagebubble.svg'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import AddPersonModal from './AddPersonModal'
+import { useState } from 'react'
+import Notification from './Notification'
 
 const NoMessage = () => {
-    return (
+    const [display, setDisplay] = useState(false)
+    const [NotificationDisplay, setNotificationDisplay] = useState(false)
+    
+    return (    
         <div className="content">
+            <AddPersonModal 
+            display={display} 
+            setDisplay={setDisplay}
+            setNotificationDisplay={setNotificationDisplay}/> 
+           
+
             <div className='chat-message-icon'>
                 <img src={messagebubble} alt="home"/>
             </div>
@@ -21,7 +33,10 @@ const NoMessage = () => {
                 <span className='add-person-icon'>
                     <FontAwesomeIcon icon={faPlus} />
                 </span>
-                <button className="add-person-btn" type="button">
+                <button 
+                className="add-person-btn" 
+                type="button"
+                onClick={() => setDisplay(true)}>
                     Add person
                 </button>
             </div>

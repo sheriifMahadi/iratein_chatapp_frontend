@@ -2,7 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
-const Notification = () => {
+const Notification = ({setNotificationDisplay}) => {
+    setNotificationDisplay(false)
+    const notificationTimeout = setTimeout(
+        function(){
+            alert("hiii")
+            setNotificationDisplay(false)
+        },1000
+    )
+    clearTimeout(notificationTimeout)
     return (
         <div className='notification-main'>
             <div className="notification-inner">
