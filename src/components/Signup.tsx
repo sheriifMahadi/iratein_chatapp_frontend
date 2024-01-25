@@ -6,13 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import homesvg from '../assets/homesvg.svg'
 import google from '../assets/google.svg'
-alert("Go to '/signup', please use username rather than email")
 
 
-const Login = () => {
+export default function Signup () {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { user, login } = useContext(AuthContext);
+//   alert("Go to '/signup', please use username rather than email")
+  
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -54,19 +55,11 @@ const Login = () => {
           <div className='welcome-text'>
             <img src="" alt="" />
               <p>
-                👋Welcome back
+                Sign up
               </p>
-              <span>Login to your account</span>
+              <span>Create an account</span>
           </div>
-          <div className="google-login modal-buttons">
-          <span className="login-google-icon">
-                <img src={google} alt="google icon" />
-            </span>
-            <button className="add">
-                  Continue with Google
-            </button>
-       
-          </div> 
+         
           <div className="raised-div-horizontal">
             <hr className=""/>
           </div>
@@ -107,7 +100,7 @@ const Login = () => {
           <p className="forgot-password">Forgot Password?</p>
           <div className="modal-buttons login-button">
               <button className="login add" type="submit">
-                {formik.isSubmitting ? "Logging in..." : "Log in"}
+                {formik.isSubmitting ? "Signing up..." : "Sign up"}
 
               </button>
           </div>
@@ -120,4 +113,3 @@ const Login = () => {
   );
 }
 
-export default Login

@@ -2,7 +2,15 @@
 import React from "react";
 
 const AddPersonModal = ({display, setDisplay, setNotificationDisplay}) =>  {
-    
+    const handleNotificationDisplay = (e) => {
+        const notificationTimeout = setTimeout(
+            function(){
+                setNotificationDisplay(true)
+            }
+            ,1000
+        )
+        // clearTimeout(notificationTimeout)
+    }
     return (
         <div>
             {
@@ -46,7 +54,9 @@ const AddPersonModal = ({display, setDisplay, setNotificationDisplay}) =>  {
                         className="add" 
                         type="button"
                         onClick={() => {setDisplay(false)
-                        setNotificationDisplay(true)}
+                        handleNotificationDisplay
+                    
+                    }
                         }
                         >
                             Add person

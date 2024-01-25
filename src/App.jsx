@@ -8,6 +8,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import Header from './components/Header';
 import AuthService from "../src/services/AuthService";
 import Inbox from './components/Inbox';
+import Signup from './components/Signup';
 
 const App = () => {
 
@@ -36,6 +37,11 @@ const App = () => {
           <Route path="/login" element={
             <AuthContextProvider>
               <Login />
+            </AuthContextProvider>
+          } />
+            <Route path="/signup" element={
+            <AuthContextProvider>
+              <Signup/>
             </AuthContextProvider>
           } />
       </Routes>

@@ -93,7 +93,7 @@ export default function Chat() {
                 <div className="right-pane">
                     <Header/>
                     {
-                        users !== null
+                        users == null
                         ? <Inbox users={users} user={user}/>
                         : <NoMessage/>
 

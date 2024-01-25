@@ -16,6 +16,15 @@ class AuthService {
     return response.data;
   }
 
+  async signup(username: string, password: string): Promise<UserModel> {
+    const response = await axios.post("http://127.0.0.1:8000/auth-signup/", { username, password });
+    if (!response.data.token) {
+      return response.data;
+    }
+    return response.data;
+  }
+
+
   logout() {
     localStorage.removeItem("user");
   }

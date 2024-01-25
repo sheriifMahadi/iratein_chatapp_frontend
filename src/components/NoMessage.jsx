@@ -7,7 +7,7 @@ import Notification from './Notification'
 
 const NoMessage = () => {
     const [display, setDisplay] = useState(false)
-    const [NotificationDisplay, setNotificationDisplay] = useState(false)
+    const [notificationDisplay, setNotificationDisplay] = useState(false)
     
     return (    
         <div className="content">
@@ -15,7 +15,8 @@ const NoMessage = () => {
             display={display} 
             setDisplay={setDisplay}
             setNotificationDisplay={setNotificationDisplay}/> 
-           
+            <Notification notificationDisplay={notificationDisplay}
+            />
 
             <div className='chat-message-icon'>
                 <img src={messagebubble} alt="home"/>

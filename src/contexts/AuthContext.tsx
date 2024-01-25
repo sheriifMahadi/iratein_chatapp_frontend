@@ -9,6 +9,7 @@ import { UserModel } from "../models/User";
 const DefaultProps = {
   login: () => null,
   logout: () => null,
+  signup: () => null,
   authAxios: axios,
   user: null,
 };
@@ -16,6 +17,7 @@ const DefaultProps = {
 export interface AuthProps {
   login: (username: string, password: string) => any;
   logout: () => void;
+  signup: () => (username: string, password: string) => any
   authAxios: AxiosInstance;
   user: UserModel | null;
 }
@@ -31,6 +33,11 @@ export const AuthContextProvider: React.FC<{ children: ReactNode }> = ({
   async function login(username: string, password: string) {
     const data = await AuthService.login(username, password);
     setUser(data);
+    return data;
+  }
+
+  async function signup(username: string, password: string) {
+    const data = await AuthService.signup(username, password);
     return data;
   }
 
@@ -63,7 +70,7 @@ export const AuthContextProvider: React.FC<{ children: ReactNode }> = ({
   );
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, authAxios }}>
+    <AuthContext.Provider value={{ user, signup, login, logout, authAxios }}>
       {children}
     </AuthContext.Provider>
   );
