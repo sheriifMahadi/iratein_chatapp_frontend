@@ -7,17 +7,17 @@ import AuthService from "../services/AuthService";
 import { UserModel } from "../models/User";
 
 const DefaultProps = {
+  signup: () => null,
   login: () => null,
   logout: () => null,
-  signup: () => null,
   authAxios: axios,
   user: null,
 };
 
 export interface AuthProps {
+  signup: (username: string, password: string) => any;
   login: (username: string, password: string) => any;
   logout: () => void;
-  signup: () => (username: string, password: string) => any
   authAxios: AxiosInstance;
   user: UserModel | null;
 }

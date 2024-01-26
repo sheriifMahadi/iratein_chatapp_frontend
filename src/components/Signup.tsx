@@ -11,7 +11,7 @@ import google from '../assets/google.svg'
 export default function Signup () {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
-  const { user, login } = useContext(AuthContext);
+  const { user, signup } = useContext(AuthContext);
 //   alert("Go to '/signup', please use username rather than email")
   
   const formik = useFormik({
@@ -22,7 +22,7 @@ export default function Signup () {
     onSubmit: async (values, { setSubmitting }) => {
       setSubmitting(true);
       const { username, password } = values;
-      const res = await login(username, password);
+      const res = await signup(username, password);
       if (res.error || res.data) {
         if (res.data && res.data.detail) {
           setError(res.data.detail);

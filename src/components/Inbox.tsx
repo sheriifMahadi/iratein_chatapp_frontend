@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
  
 import { AuthContext } from "../contexts/AuthContext";
 import ChatTextBox from './ChatTextBox'
+import { UserModel } from '../models/User'
 
 interface UserResponse {
   username: string;
@@ -16,22 +17,7 @@ interface UserResponse {
   url: string;
 }
 const Inbox = ({users, user}) => {
-    // const { user } = useContext(AuthContext);
-    // const [users, setUsers] = useState<UserResponse[]>([]);
-
-    // useEffect(() => {
-    //     async function fetchUsers() {
-    //       const res = await fetch("http://127.0.0.1:8000/api/users/all/", {
-    //         headers: {
-    //           Authorization: `Token ${user?.token}`
-    //         }
-    //       });
-    //       const data = await res.json();    
-    //       setUsers(data);
-    //     }
-    //     fetchUsers();
-    //   }, [user]);
-
+   
     function convertChatName(username: string) {
         const namesAlph = [user?.username, username].sort();
         return `${namesAlph[0]}`.replace(/[^a-zA-Z0-9 ]/g, '-');;
@@ -46,8 +32,8 @@ const Inbox = ({users, user}) => {
                 <FontAwesomeIcon className='search-icon search-icon-secondary' icon={faMagnifyingGlass} />
                 <input className="search-for-message" type="text" placeholder='Search for message'/>
                 </div>
-                {users.filter((u) => u.username !== user?.username)
-                .map((u) => (
+                {users.filter((u:UserModel) => u.username !== user?.username)
+                .map((u:UserModel) => (
                     <Link 
                         key={u.username} 
                         to={`chats/${convertChatName(u.username)}`}>

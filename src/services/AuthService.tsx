@@ -8,7 +8,7 @@ class AuthService {
   }
 
   async login(username: string, password: string): Promise<UserModel> {
-    const response = await axios.post("http://127.0.0.1:8000/auth-token/", { username, password });
+    const response = await axios.post("https://irateinchatapp.onrender.com/auth-token/", { username, password });
     if (!response.data.token) {
       return response.data;
     }
@@ -17,7 +17,7 @@ class AuthService {
   }
 
   async signup(username: string, password: string): Promise<UserModel> {
-    const response = await axios.post("http://127.0.0.1:8000/auth-signup/", { username, password });
+    const response = await axios.post("https://irateinchatapp.onrender.com/auth-signup/", { username, password });
     if (!response.data.token) {
       return response.data;
     }

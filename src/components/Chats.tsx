@@ -50,7 +50,7 @@ export default function Chat() {
   
       useEffect(() => {
           async function fetchUsers() {
-            const res = await fetch("http://127.0.0.1:8000/api/users/all/", {
+            const res = await fetch("https://irateinchatapp.onrender.com/api/users/all/", {
               headers: {
                 Authorization: `Token ${user?.token}`
               }
@@ -62,7 +62,6 @@ export default function Chat() {
         }, [user]);
     return (
         <div>
-            <form onSubmit={formik.handleSubmit}>
             <div className="chat-container">
                 <div className='left-pane'>
 
@@ -77,6 +76,7 @@ export default function Chat() {
                             <input type="text" placeholder='Messages'/>
                         </div>
                     </div>
+                    <form onSubmit={formik.handleSubmit}>
 
                     <div className='leftpane-bottom'>
                         <span className='button-logout-icon'>
@@ -88,12 +88,14 @@ export default function Chat() {
                         </button>
 
                     </div>
+                    </form>
+
                 </div>
 
                 <div className="right-pane">
                     <Header/>
                     {
-                        users == null
+                        users !== null
                         ? <Inbox users={users} user={user}/>
                         : <NoMessage/>
 
@@ -101,7 +103,6 @@ export default function Chat() {
                     
                 </div>
             </div>
-            </form>
         </div>
     )
 }
