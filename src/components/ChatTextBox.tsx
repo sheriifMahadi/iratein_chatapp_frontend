@@ -13,7 +13,7 @@ const ChatTextBox = () => {
     const [message, setMessage] = useState("");
     const [name, setName] = useState("");
     const [messageHistory, setMessageHistory] = useState([]);
-    const { readyState, sendJsonMessage } = useWebSocket(user ? `ws://irateinchatapp.onrender.com/chats/${conversationName}/` : null, { 
+    const { readyState, sendJsonMessage } = useWebSocket(user ? `wss://irateinchatapp.onrender.com/chats/${conversationName}/` : null, { 
     queryParams:{
       token: user ? user.token: ""
     },
